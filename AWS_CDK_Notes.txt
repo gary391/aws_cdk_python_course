@@ -1,0 +1,54 @@
+AWS CDK
+
+
+Some prereq:
+
+1. Python Virtual Environment
+
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+python -m pip install --upgrade virtualenv 
+
+
+2. Setting up cdk 
+    a. Note: The folder should be empty
+    b. This will also create a virtual environment 
+    
+mkdir aws_cdk_python_course
+cd aws_cdk_python_course
+cdk init --language python
+
+3. Activating the virtual environment. 
+source .env/bin/activate
+
+
+4. Validate the CDK program & all the dependencies have been met, this will create a cdk.out folder with the cloudformation template in json formate
+cdk ls
+
+5. This will creare the actual cloudformation template, in yml.
+cdk synth
+
+6. This will create a temp S3 bucket which stores the cloudformation template, that will be deployed.
+Note: Before executing this step, you should set up programmatic access to the account. 
+
+cdk bootstrap
+
+7. For deploying the stack use the following command 
+
+cdk deploy 
+
+#######################################################
+
+AWS CDK Reference: https://docs.aws.amazon.com/cdk/api/latest/python/
+
+AWS CDK Example
+https://pypi.org/project/aws-cdk.aws-s3/
+
+######################################################
+
+Version Control using Github 
+
+1. Create a project in git hub and set your repo to remote orgin using the following commands:
+
+git remote add origin git@github.com:gary391/aws_cdk_python_course.git
+git push -u origin master
