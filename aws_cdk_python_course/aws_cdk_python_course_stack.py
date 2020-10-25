@@ -11,7 +11,7 @@ class AwsCdkPythonCourseStack(core.Stack):
         # The code that defines your stack goes here
     
         _s3.Bucket(
-            self, 
+            self,
             "myBucketId",
             bucket_name="myfirstcsdkprojectpython2020",
             versioned=True,
