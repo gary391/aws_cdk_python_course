@@ -12,5 +12,8 @@ class AwsCdkPythonCourseStack(core.Stack):
     
         _s3.Bucket(
             self, 
-            "myBucketId"
+            "myBucketId",
+            bucket_name="myfirstcsdkprojectpython2020",
+            versioned=True,
+            encryption=_s3.BucketEncryption.KMS_MANAGED
         )
