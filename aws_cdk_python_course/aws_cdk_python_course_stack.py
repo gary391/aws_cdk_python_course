@@ -1,5 +1,5 @@
 from aws_cdk import (
-    aws_s3 as _s3,
+    aws_s3 as _s3, aws_iam as _iam,
     core
 )
 
@@ -13,7 +13,22 @@ class AwsCdkPythonCourseStack(core.Stack):
         _s3.Bucket(
             self,
             "myBucketId",
-            bucket_name="myfirstcsdkprojectpython2020",
-            versioned=True,
-            encryption=_s3.BucketEncryption.KMS_MANAGED
+            bucket_name="myfirstcsdkprojectpython20201",
+            versioned=False,
+            encryption=_s3.BucketEncryption.S3_MANAGED,
+            block_public_access=_s3.BlockPublicAccess.BLOCK_ALL
+        )
+
+        mybucket = _s3.Bucket(
+            self,
+            "myBucketId1"
+        )
+        _iam.Group(self, "gid")
+
+        output_1 = core.CfnOutput(
+            self, 
+            "myBucketOutput1",
+            value=mybucket.bucket_name,
+            description=f"My First CDK Bucket",
+            export_name="myBucketOutput1"
         )
